@@ -1,0 +1,34 @@
+{
+  "name": "foundation-apps-template",
+  "version": "1.2.0",
+  "authors": [
+    "ZURB"
+  ],
+  "description": "Template project for Foundation for Apps by ZURB.",
+  "main": "gulpfile.js",
+  "keywords": [
+    "framework",
+    "angular",
+    "web",
+    "apps"
+  ],
+  "license": "MIT",
+  "homepage": "http://foundation.zurb.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation-apps": "~1.2.0",
+    "ngvideo": "~0.4.13",
+    "angular-file-upload": "~2.2.0",
+    "angular-resource": "~1.4.8",
+    "angular-audio": "~1.7.1",
+    "angular-hotkeys": "chieffancypants/angular-hotkeys#~1.6.0",
+    "angular-spinner": "~0.8.1"
+  }
+}

@@ -1,0 +1,49 @@
+<a zf-close="" class="close-button">×</a>
+<div class="grid-block">
+	<div class="grid-content medium-8">
+		<img ng-src="{{ media.stream_url }}">
+
+	</div>
+	<div class="grid-content medium-4">
+		<div class="grid-block vertical">
+			<div class="grid-content">
+				<img width="20px" height="20px" ng-src="{{ media.owner.avatar.stream_url }}"> <p>{{  media.owner.login }}</p>
+			</div>
+			<div class="grid-content">
+				<p>{{ media.description }}</p>
+			</div>
+			<div class="grid-block">
+				<div class="medium-4">
+					<button style="padding-right: 7px;" class="sx-social" ng-click="showComments()"><img  style="margin: 2px 4px 2px 2px;" zf-iconic="" icon="Comment-square " size="small" class="iconic-color-dark"></button>
+				</div>
+				<div class="medium-4">
+					<button style="padding-right: 7px" class="sx-social"><img style="margin: 2px 4px 2px 2px;" zf-iconic="" icon="Share-boxed" size="small" class="iconic-color-dark"></button>
+				</div>
+				<div class="medium-4">
+						<button class="sx-social" likeable="media"><img style="margin: 2px 4px 2px 2px;" zf-iconic="" icon="thumb" size="small" class="iconic-color-dark"></button>
+				</div>
+			</div>
+			<div class="grid-block" ng-controller="commentCtrl" ng-init="init(media)">
+				<div class="grid-content vertical" ng-repeat="comment in comments">
+					<hr>
+					<div class="grid-block wrap">
+						<div class="grid-content medium-1">
+
+						</div>
+						<div class="grid-content medium-11">
+							{{ comment.owner.login }}&nbsp;<span style="color: #999999; font-size: 0.75em;" ng-bind="comment.created_at | date: 'MM/dd/yyyy'"></span>
+						</div>
+					</div>
+					<div class="grid-content" style="padding-top: 5px;">
+						{{ comment.content }}
+					</div>
+				</div>
+
+				<div class="grid-content" style="padding-top: 1em;">
+					<textarea ng-model="com.content" placeholder="Your comment..."></textarea>
+					<a class="button" ng-click="sendComment()">Send</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

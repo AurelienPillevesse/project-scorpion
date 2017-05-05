@@ -1,0 +1,24 @@
+<div class="grid-block shrink player" style="background-color: white; padding: 10px 10px 10px 10px;" ng-controller='SoundPlayerCtrl'>
+  <div class="medium-3 content"></div>
+  <div class="medium-6 grid-block">
+    <div class="medium-1 content">
+      <ul class="menu-bar">
+        <li><img ng-click='changerPlay()' zf-iconic="" dyn-icon="play"/></li>
+        <li ng-bind='audio.currentTime | trackTime' style="color: #900A00;" ></li>
+      </ul>
+    </div>
+    <div class="medium-8 content">
+      <ul class="menu-bar">
+        <li><input class="form-control ng-pristine ng-untouched ng-valid" type="range" min="0" max="1" step="0.01" ng-model="audio.progress"></li>
+      </ul>
+    </div>
+    <div class="medium-4 grid-block">
+      <ul class="menu-bar">
+        <li ng-bind="audio.remaining | trackTime" style="padding: 0px 0px 0px 15px; color: #900A00;"></li>
+        <li><button shortcut="{space : mute}" ng-click='mute()' zf-iconic="" dyn-icon="Volume.icon"/></li>
+        <li><input class='form-control' type=range min=0 max=1 step=0.01 ng-model='Volume.volume'></li>
+      </ul>
+    </div>
+  </div>
+  <div class="medium-3 content"></div>
+</div>

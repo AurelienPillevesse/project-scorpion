@@ -1,0 +1,20 @@
+medias:
+    type: rest
+    resource: "SealsixMediaBundle:Media"
+    name_prefix: api_
+streaming:
+    type: rest
+    resource: "SealsixMediaBundle:Streaming"
+    name_prefix: api_
+search:
+    type: rest
+    resource: "SealsixMediaBundle:Search"
+    name_prefix: api_
+comment:
+    type: rest
+    resource: "SealsixMediaBundle:Comment"
+    name_prefix: api_
+like:
+    type: rest
+    resource: "SealsixMediaBundle:MediaLikes"
+    name_prefix: api_

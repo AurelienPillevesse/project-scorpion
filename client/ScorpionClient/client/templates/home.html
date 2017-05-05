@@ -1,0 +1,23 @@
+---
+name: home
+url: /
+---
+<div class="background">
+		<div class="home-container">
+	  		<h1 class="welcome">Welcome on Media'z !</h1>
+
+	  		<p class="lead">Media from <strong>A to Z.</strong>..<br><br><br></p>
+		</div>
+		<div class="fieldbuttons">
+			<span class="inline-label" style="padding: 0 20px 70px 20px; margin:0;" ng-controller="SearchCtrl">
+                <input id="searchBar" type="search" placeholder="Search a media" ng-model="searchContent" style="height : 35px">
+                <a class="button" ng-click="doSearch()"><img zf-iconic="" icon="magnifying-glass" size="small"></a>
+            </span>
+			<a class="button" href="#!/sign-in">Sign in</a>
+			<a class="button" href="#!/Connect">Log in</a>
+
+		</div>
+		<footer class="footer">
+		   SEAL Team Six ~ Version 1.1 ~ Project Scorpion
+		</footer>
+</div>

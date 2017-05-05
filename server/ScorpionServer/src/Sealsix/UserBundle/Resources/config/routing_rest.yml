@@ -1,0 +1,4 @@
+users:
+    type: rest
+    resource: "SealsixUserBundle:User"
+    name_prefix: api_

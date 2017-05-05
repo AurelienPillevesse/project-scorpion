@@ -1,0 +1,47 @@
+---
+name: profilemodif
+url: /profileModif
+controller: profileModifCtrl
+---
+
+<div class="grid-block">
+	<div class="grid-container" style="background-color: #fff">
+		<div>
+		  <h1>Profile modification</h1>
+		</div>
+	<form>
+	
+		<div class="grid-block">
+			<div class="small-12 medium-6 grid-content">
+				<label>	
+					Prénom
+					<input type="text" placeholder="Jean-Luc" ng-model="credential.nom">
+				</label>
+			</div>
+			<div class="small-12 medium-6 grid-content">
+				<label>
+					Nom
+					<input type="text" placeholder="Delarue" ng-model="credential.prenom">
+				</label>
+			</div>
+			<div class="small-12 medium-6 grid-content">
+				<label>	
+					E-mail
+					<input type="text" placeholder="Jean-Luc-Delarue@gmail.com" ng-model="credential.email">
+				</label>
+			</div>
+			<div class="small-12 medium-6 grid-content">
+				<label>
+					Mot de passe
+					<input type="password" placeholder="*******" ng-model="credential.psw">
+				</label>
+			</div>
+			<li>
+	            <a href="#" class="button" ng-click="profileModif(credential)">Modifier</a>
+	        </li>
+		</div>
+	</form>	
+			
+
+	</div>
+</div>

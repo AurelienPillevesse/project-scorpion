@@ -1,0 +1,53 @@
+---
+name: connect
+url: /Connect
+controller: logInCtrl
+---
+
+<div class="grid-block" style="width: 100%;">
+            <div class="grid-content medium-2">
+            </div>
+            <div class="grid-content medium-8" style="padding: 0 0 0 25px;">
+ <div class="grid-container sx-panel-container" >
+<div class="connect-container" style="padding: 3rem 3rem 3rem 3rem;">
+
+
+
+
+<main class="redline gate login">
+
+  <form class="path4-overlay" method="post" name="login" onsubmit="verif">
+    <hgroup class="logo">
+      <a  href="#!/search-result" sl-processed="1" >Media'z</a>
+      <h1>Hi ! Sign in to continue</h1>
+    </hgroup>
+
+    <div class="field required">
+      <label for="id_login">Login</label>
+      <input type="text" name="login" id="id_login" placeholder="Login" ng-model="credential.login">
+    </div>
+    <div class="field required field-password">
+      <label for="id_password">Password</label>
+      <input type="password" name="password" id="id_password" placeholder="Password" ng-model="credential.password">
+    </div>
+      <p class="sx-error" ng-show="erreur">Wrong password or email.</p>
+    <div class="fieldbuttons">
+      <a class="button" href="" ng-click="logIn(credential)">Log in</a>
+    </div>
+    <div class="more">
+      <br>
+      <!--<p><a href="#!/password" sl-processed="1">Forgot your password?</a></p>-->
+      <p>Not on Mediaz? <a href="#!/sign-in" sl-processed="1">Get started here</a>.</p>
+    </div>
+  </form>
+
+</main>
+ </div>
+</div>
+</div>
+
+
+            </div>
+            <div class="grid-content medium-2">
+            </div>
+        </div>

@@ -1,0 +1,7 @@
+Rest_User:
+    type: rest
+    resource: "@SealsixUserBundle/Resources/config/routing_rest.yml"
+    
+Rest_Media:
+   type: rest
+   resource: "@SealsixMediaBundle/Resources/config/routing_rest.yml"

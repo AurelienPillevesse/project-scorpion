@@ -1,0 +1,67 @@
+<div class="grid-content" ng-controller="profileModifCtrl">
+	<section>
+		<div>
+			<h1>Profile modification</h1>
+		</div>
+
+		<form>
+			<div class="grid-block">
+
+				<div class="small-12 medium-6 grid-content">
+					<label>
+						Prénom
+						<input type="text" placeholder="Jean-Luc" ng-model="credential.last_name">
+					</label>
+				</div>
+
+				<div class="small-12 medium-6 grid-content">
+					<label>
+						Nom
+						<input type="text" placeholder="Delarue" ng-model="credential.first_name">
+					</label>
+				</div>
+
+				<div class="small-12 medium-6 grid-content">
+					<label>
+						E-mail
+						<input type="text" placeholder="Jean-Luc-Delarue@gmail.com" ng-model="credential.email">
+					</label>
+				</div>
+
+				<div class="small-12 medium-6 grid-content">
+					<label>
+						Mot de passe
+						<input type="password" placeholder="*******" ng-model="credential.password">
+					</label>
+				</div>
+
+				<div class="small-12 medium-6 grid-content">
+					<label>
+						City
+						<input type="text" placeholder="New York City" ng-model="credential.city">
+					</label>
+				</div>
+
+				<div class="small-12 medium-6 grid-content">
+					<label>
+						Country
+						<input type="text" placeholder="USA" ng-model="credential.country">
+					</label>
+				</div>
+
+				<div class="small-12 medium-12 grid-content">
+					<label>
+						Biography
+						<textarea placeholder="About you..." ng-model="credential.biography"></textarea>
+						</label>
+					</div>
+
+					<div class="small-12 medium-12 grid-content">
+						<a class="button" ng-click="profileModif(credential)">Edit</a>
+					</div>
+
+				</div>
+			</form>
+
+		</section>
+</div>

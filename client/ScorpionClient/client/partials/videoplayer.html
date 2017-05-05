@@ -1,0 +1,137 @@
+<!--<section ng-controller="videoPlayerCtrl" style="padding: 1rem;" ng-video>
+    <video vi-screen></video>
+    <input vi-timeline />
+    <section vi-controls>
+    <a vi-controls-play><li><img ng-click='changerPlay()' zf-iconic="" dyn-icon="play"/></li></a>
+    <a vi-controls-pause>Pause</a>
+	</section>
+	<section vi-feedback>
+
+	    <ul>
+	        <li>Time: {{currentTime}}s / {{duration}}s</li>
+	        <li><button shortcut="{space : mute}" ng-click='mute()' zf-iconic="" dyn-icon="Volume.icon"/></li>
+	        <li>Buffered: {{buffered}}%</li>
+	        <li>Loading: {{loading}}</li>
+	        <li>Playing: {{playing}}</li>
+	    </ul>
+
+	</section>
+</section>-->
+
+    <section class="ng-video-container" ng-controller="videoPlayerCtrl" >
+
+        <!-- Base Directive -->
+        <section class="video" ng-video>
+
+            <!-- Screen Directive -->
+            <video vi-screen></video>
+
+            <section vi-controls class="controls">
+
+                <img vi-controls-play ng-click='changerPlay()' zf-iconic="" dyn-icon="play"/>
+                <span vi-controls-pause title="Pause" class="glyphicon glyphicon-pause"></span>
+            </section>
+
+            <!-- Full Screen Directive -->
+            <section class="full-screen">
+                <span title="Full Screen" vi-full-screen-toggle class="glyphicon glyphicon-fullscreen"></span>
+            </section>
+
+            <!-- Feedback Directive -->
+            <section vi-feedback class="feedback">
+
+
+                <section class="loading" ng-show="loading">
+                    Loading...
+                </section>
+
+                <!-- Volume Directive -->
+                <section vi-volume class="volume">
+
+                    <div class="scale">
+                        <div class="bar" style="width: {{volume * 100}}%"></div>
+                    </div>
+
+                    <li><input class="form-control ng-pristine ng-untouched ng-valid" type="range" min="0" max="1" step="0.01" ng-model="audio.progress"></li>
+
+                </section>
+
+                <!-- Duration Directive -->
+                <section class="duration">
+                    {{currentTime | number: 2}}s of {{duration | number: 2}}s
+                    [{{percentagePlayed | number: 0}}%]
+                </section>
+
+                <section class="title">ngVideo</section>
+
+                <!-- Timeline Directive -->
+                <section class="timeline">
+                    <input vi-timeline />
+                </section>
+
+
+            <!-- Playlist Directive -->
+            <section vi-playlist class="playlist" ng-show="$parent.playlistOpen">
+
+                <ul>
+                    <li class="title">
+                        <span class="glyphicon glyphicon-facetime-video"></span> &nbsp;
+                        Playlist
+                        <div class="close-playlist"
+                             title="Close Playlist"
+                             ng-click="$parent.playlistOpen = !$parent.playlistOpen">
+                            &times;
+                        </div>
+                    </li>
+                    <li vi-playlist-video ng-repeat="video in videos" ng-model="video">
+
+                        <span vi-meta ng-model="video" class="meta">
+                            {{duration | number: 2}}s
+                        </span>
+
+                        {{getVideoName(video)}}
+
+                    </li>
+                </ul>
+
+            </section>
+
+            <span title="Open Playlist"
+                  ng-show="!playlistOpen"
+                  ng-click="playlistOpen = !playlistOpen"
+                  class="open-playlist glyphicon glyphicon-facetime-video">
+            </span>
+
+        </section>
+
+    </section>
+
+<!--<section ng-controller="videoPlayerCtrl" class="grid-frame" ng-video>
+    <video vi-screen></video>
+    <input vi-timeline />
+	<div class="grid-block">
+		<section vi-controls>
+          <div class="medium-1 content">
+            <ul class="menu-bar">
+              <li><a vi-controls-play><img ng-click='changerPlay()' zf-iconic="" dyn-icon="play"/></a></li>
+            </ul>
+          </div>
+  		</section>
+  		<section vi-feedback>
+          <div class="medium-8 content">
+            <ul class="menu-bar">
+              <li style="color: #900A00;" >{{currentTime}}s</li>
+              <li><input class="form-control ng-pristine ng-untouched ng-valid" type="range" min="0" max="1" step="0.01" ng-model="audio.progress"></li>
+            </ul>
+          </div>
+          <div class="medium-4 grid-block">
+            <ul class="menu-bar">
+              <li style="padding: 0px 0px 0px 15px; color: #900A00;">{{duration}}s</li>
+              <li><button shortcut="{space : mute}" ng-click='mute()' vi-volume-mute zf-iconic="" dyn-icon="Volume.icon"/></li>
+              <li><input class='form-control' type=range min=0 max=1 step=0.01 ng-model='Volume.volume'></li>
+              <li><a vi-full-screen-toggle></a></li>
+            </ul>
+          </div>
+      	</section>
+    </div>
+</section>-->

@@ -1,0 +1,61 @@
+---
+name: signin
+url: /sign-in
+controller: signInCtrl
+---
+
+<div class="grid-block" style="width: 100%;">
+            <div class="grid-content medium-2">
+            </div>
+            <div class="grid-content medium-8" style="padding: 0 0 0 25px;">
+ <div class="grid-container sx-panel-container">
+<div class="grid-container" style="padding: 3rem 3rem 3rem 3rem;">
+
+<form>	
+	<hgroup class="logo">
+      <h1>Welcome on <a  href="#!/" sl-processed="1" >Media'z</a><br><br></h1>
+    </hgroup>
+	<div class="grid-block">
+		<div class="small-12 medium-6 grid-content">
+			<label>	
+				Login
+				<input type="text" placeholder="JeanJean63" ng-model="credential.login">
+			</label>
+		</div>
+		<div class="small-12 medium-6 grid-content">
+			<label>	
+				First Name
+				<input type="text" placeholder="Jean-Luc" ng-model="credential.lastName">
+			</label>
+		</div>
+		<div class="small-12 medium-6 grid-content">
+			<label>
+				Last Name
+				<input type="text" placeholder="Delarue" ng-model="credential.firstName">
+			</label>
+		</div>
+		<div class="small-12 medium-6 grid-content">
+			<label>	
+				E-mail
+				<input type="text" placeholder="Jean-Luc-Delarue@gmail.com" ng-model="credential.email">
+			</label>
+		</div>
+		<div class="small-12 medium-6 grid-content">
+			<label>
+				Password
+				<input type="password" placeholder="*******" ng-model="credential.password">
+			</label>
+		</div>
+		<div class="small-12 medium-6 grid-content">
+		</div>
+            <a href="#!/Connect" class="button" ng-click="signIn(credential)">Subscribe</a>
+	</div>
+</form>
+</div>
+</div>
+
+
+            </div>
+            <div class="grid-content medium-2">
+            </div>
+        </div>

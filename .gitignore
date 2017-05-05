@@ -1,0 +1,6 @@
+build/
+node_modules/
+/nbproject/private/
+/nbproject
+server/ScorpionServer/app/Upload/
+/server/ScorpionServer/nbproject/private/

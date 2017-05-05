@@ -1,0 +1,152 @@
+---
+name: board
+url: /board
+controller: boardCtrl
+---
+
+<div class="grid-block" style="width: 100%;">
+
+  <div class="grid-content medium-2">
+  </div>
+
+  <div class="grid-content medium-8" style="padding: 0 0 0 25px;">
+
+    <div class="grid-container sx-panel-container">
+      <div class="grid-block" style="margin-left: 3rem;">
+
+        <div class="medium-8" >
+          <div class="align-spaced grid-block vertical">
+            <div class="grid-block" style="padding: 1rem 1rem 0 1rem">
+              <h1>Board</h1>
+            </div>
+            <hr>
+            <div class="grid-block vertical card" ng-repeat="media in medias" style="padding: 20px 20px 20px 20px;">
+
+              <div ng-show="media.type == 'musique'" class="grid-block" ng-controller='soundCardCtrl' ng-init="init(media)">
+                <div class="medium-2 grid-content"><img width="160px" height="160px" src="assets/img/chicago-landscape.jpg"></div>
+                <div class="medium-10 grid-block">
+                  <div class="medium-2 grid-content" style="padding-right:0;">
+                    <a class="button playButton" playable="media"><img ng-click='changerPlay()' zf-iconic="" dyn-icon="play"/></a>
+                  </div>
+                  <div class="medium-10 grid-block vertical">
+                    <div class="grid-block vertical"  style="padding-left: 0;">
+                      <p class="auteur">{{ media.owner.login }}</p>
+                      <p class="titre">{{ media.nom }}</p>
+                    </div>
+                    <div class="grid-block">
+                      <div class="medium-1 grid-content" style="padding:0;">
+                        <p ng-bind='audio.currentTime | trackTime'></p>
+                      </div>
+                      <div class="medium-10 grid-content" style="padding:0;">
+                        <input class="form-control ng-pristine ng-untouched ng-valid" type="range" min="0" max="1" step="0.01" ng-model="audio.progress">
+                      </div>
+                      <div class="medium-1 grid-content" style="padding:0;">
+                        <p ng-bind="audio.remaining | trackTime" style="padding: 0px 0px 0px 10px"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div ng-show="media.type == 'video'" class="grid-block player" style="padding: 0 0 1rem 0;">
+                <div class="medium-8 content">
+                  <div class="sx-container-img video">
+                    <a playable="media"><img width="700px" height="500px" src="assets/img/chicago-landscape.jpg">
+                      <div class="sx_center_img"><a class="button playButton video" style="opacity: 0.9;"><img ng-click='changerPlay()' zf-iconic="" dyn-icon="play"/></a></div></a>
+                    </div>
+                    <div class="medium-10"></div>
+                  </div>
+                  <div class="medium-4 content v-align" style="padding: 0 0 0 2rem">
+                    <div class="grid-block vertical align-top">
+                      <p class="auteur">{{ media.owner.login }}</p>
+                      <p class="titre">{{ media.nom }}</p>
+                      <p>{{ media.description }}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div ng-show="media.type == 'image'" class="grid-block player" style="padding: 0 0 1rem 0;">
+                  <div class="medium-8 grid-content sx-container-img" style="height: 30vh;">
+                    <img ng-src="{{ media.stream_url }}" playable="media">
+                  </div>
+                  <div class="medium-4 grid-block vertical" style="padding: 0 0 0 1rem">
+                    <p class="auteur">{{ media.owner.login }}</p>
+                    <p class="titre">{{ media.nom }}</p>
+                    <p>{{ media.description }}</p>
+                  </div>
+                </div>
+
+
+                <!-- Comments section -->
+                <div ng-controller="commentCtrl" ng-init="init(media)">
+                  <div class="grid-block">
+
+                    <div class="medium-8 grid-content" style="padding-left: 3px;">
+                      <a style="color: black;" ng-click="showComments()"><span class="badge dark">{{ commentCount.comment }}</span> Comments..</a>
+                    </div>
+
+                    <div class="medium-4 grid-block wrap align-right">
+                      <button style="padding-right: 7px" class="sx-social" ng-click="deleteMedia(media)"><img style="margin: 2px 4px 2px 2px;" zf-iconic="" icon="circle-x" size="small" class="iconic-color-dark"></button>
+                      <button style="padding-right: 7px;" class="sx-social" ng-click="showComments()"><img  style="margin: 2px 4px 2px 2px;" zf-iconic="" icon="Comment-square " size="small" class="iconic-color-dark"></button>
+                      <button style="padding-right: 7px" class="sx-social"><img style="margin: 2px 4px 2px 2px;" zf-iconic="" icon="Share-boxed" size="small" class="iconic-color-dark"></button>
+                      <button class="sx-social" likeable="media"><img style="margin: 2px 4px 2px 2px;" zf-iconic="" icon="thumb" size="small" class="iconic-color-dark"></button>
+                    </div>
+
+                  </div>
+
+                  <div class="grid-block vertical" ng-show="showComm" style="padding-top: 2em;" animation-in="slideInDown" animation-out="slideOutUp">
+
+                    <div class="grid-content vertical" ng-repeat="comment in comments">
+                      <hr>
+                      <div class="grid-block wrap">
+                        <div class="grid-content medium-1">
+
+                        </div>
+                        <div class="grid-content medium-11">
+                          {{ comment.owner.login }}&nbsp;<span style="color: #999999; font-size: 0.75em;" ng-bind="comment.created_at | date: 'MM/dd/yyyy'"></span>
+                        </div>
+                      </div>
+                      <div class="grid-content" style="padding-top: 5px;">
+                        {{ comment.content }}
+                      </div>
+                    </div>
+
+                    <div class="grid-content" style="padding-top: 1em;">
+                      <textarea ng-model="com.content" placeholder="Your comment..."></textarea>
+                      <a class="button" ng-click="sendComment()">Send</a>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-block vertical medium-3" style="margin-left: 3rem;">
+            <div class="grid-content shrink">
+              <p><h1>Likes <img zf-iconic="" icon="thumb" size="medium"></h1></p>
+            </div>
+
+            <div class="grid-content card shrink">
+              <div class="grid-block" style="padding: 5px 5px 5px 5px;" ng-repeat="media in likes">
+                <div class="medium-3">
+                  <img width="30px" height="30px" src="assets/img/chicago-landscape.jpg">
+                </div>
+                <div class="medium-7 v-align" style="margin-left: 5px;">
+                  <p class="align-bottom">{{ media.nom }}</p>
+                </div>
+                <div class="medium-1">
+                  <a class="button playButtonRight" playable="media">▶️</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="grid-content medium-2">
+      </div>
+    </div>

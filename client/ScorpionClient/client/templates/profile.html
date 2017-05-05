@@ -1,0 +1,53 @@
+---
+name: profile
+url: /profile
+controller: profileCtrl
+---
+<div class="grid-block" style="width: 100%;">
+
+    <div class="grid-content medium-2">
+    </div>
+
+    <div class="grid-content medium-8" style="padding: 0 0 0 25px;">
+
+		 <div class="grid-container sx-panel-container">
+
+			<div class="main">
+			    <div class="cover">
+			        <img class="centered" src="assets/img/chicago-landscape.jpg" />
+			    </div>
+			    <div class="profile image-cropper">
+			        <img class="centered-profil" ng-src="{{ credential.avatar.stream_url || 'https://openclassrooms.com/bundles/common/images/avatar_defaut.png' }} " />
+			    </div>
+			    <div class="infoprofil">
+				    <p style="margin-bottom: 10px; color: white; font-size: 25px;">{{ credential.login }}</p><br>
+				    <p style="margin-bottom: 5px; color: #BBBBBB;">{{ credential.first_name }} {{ credential.last_name }}</p><br>
+				    <p style="color: #BBBBBB;" ng-show="credential.city && credential.country">{{ credential.city }}, {{ credential.country }}</p>
+            <p style="color: #BBBBBB;" ng-hide="credential.city || credential.country">Unicorn Land</p><br>
+				</div>
+			</div>
+
+			<div class="grid-block" style="margin: 0 0 0 0;">
+				<div class="grid-block medium-3" style="margin:0;">
+					<a class="secondary button expand" style="font-size: 18px;" ng-click="changerPage('activity')" ng-style="tabButton['activity'].style">Activity</a>
+				</div>
+				<div class="grid-block medium-3" style="margin:0;">
+					<a class="secondary button expand" style="font-size: 18px;"  ng-click="changerPage('aboutme')" ng-style="tabButton['aboutme'].style">About Me</a>
+				</div>
+				<div class="grid-block medium-3" style="margin:0;">
+					<a class="secondary button expand" style="font-size: 18px;" ng-click="changerPage('mymedia')" ng-style="tabButton['mymedia'].style">My Medias</a>
+				</div>
+				<div class="grid-block medium-3" style="margin:0;">
+					<a class="secondary button expand" style="font-size: 18px;"  ng-click="changerPage('like')" ng-style="tabButton['like'].style">Likes</a>
+				</div>
+			</div>
+
+			<div ng-include src="contenu">
+			</div>
+		</div>
+	</div>
+
+	<div class="grid-content medium-2">
+	</div>
+
+</div>

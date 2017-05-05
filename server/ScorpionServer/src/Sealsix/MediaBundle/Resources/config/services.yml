@@ -1,0 +1,28 @@
+parameters:
+    sealsix.media.indexer.rank_prefix: RankIndex
+    sealsix.media.indexer.meta_prefix: IndexMeta
+services:
+    uploader:
+        class: Sealsix\MediaBundle\Uploader\FileUploader
+        arguments: [%kernel.root_dir%]
+    searcher:
+        class: Sealsix\MediaBundle\Searcher\MetaphoneSearcher
+        arguments: [@doctrine.orm.entity_manager]
+    indexer:
+        class: Sealsix\MediaBundle\Searcher\DatabaseIndexer
+        arguments: [@doctrine.orm.entity_manager, %sealsix.media.indexer.rank_prefix%, %sealsix.media.indexer.meta_prefix%]
+    sealsix.media.check_public_listener:
+        class: Sealsix\MediaBundle\EventListener\CheckPublicListener
+        arguments: [@service_container]
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+    sealsix.media.indexing_listener:
+        class: Sealsix\MediaBundle\EventListener\IndexingListener
+        arguments: [@service_container]
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+    my.listener2:
+        class: Sealsix\MediaBundle\EventListener\StreamUrlListener
+        arguments: [@service_container]
+        tags:
+            - { name: doctrine.event_listener, event: postLoad, connection: default }
